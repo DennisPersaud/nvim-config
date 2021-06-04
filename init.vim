@@ -25,8 +25,8 @@ set signcolumn=yes
 set colorcolumn=80
 set updatetime=100
 set completefunc=emoji#complete
-set shell=powershell shellquote=( shellpipe=\| shellxquote=
-set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
+set shell=pwsh shellquote=( shellpipe=\| shellxquote=
+set shellcmdflag=-NoLogo\ -ExecutionPolicy\ RemoteSigned\ -Command
 set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
 call plug#begin('~/AppData/Local/nvim-data/site/plugged')
