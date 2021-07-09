@@ -43,6 +43,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
+"Plug 'frazrepo/vim-rainbow'
 Plug 'preservim/nerdcommenter'
 Plug 'justinmk/vim-sneak'
 Plug 'ervandew/supertab'
@@ -118,6 +119,9 @@ nnoremap <Leader>A :UndotreeToggle<CR>
 
 " Sneak
 let g:sneak#s_next = 1
+
+" Vim Rainbow Brackets
+"let g:rainbow_active = 1
 
 " Gitgutter
 let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
