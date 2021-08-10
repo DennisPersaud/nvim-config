@@ -37,6 +37,7 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'norcalli/nvim-colorizer.lua' 
+Plug '907th/vim-auto-save'
 Plug 'tpope/vim-fugitive' 
 Plug 'preservim/nerdtree' 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -139,6 +140,9 @@ function! Submoji()
     %s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
 endfunction
 nnoremap <A-\> :call Submoji()<CR>
+
+" Autosave
+let g:auto_save = 1
 
 " Key remaps
 " Shift lines up & down
