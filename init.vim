@@ -8,7 +8,7 @@ set hidden
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
 set autoindent
 set smartindent
 set nowrap
@@ -31,14 +31,14 @@ set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
 call plug#begin('~/AppData/Local/nvim-data/site/plugged')
 Plug 'ajmwagar/vim-deus'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'norcalli/nvim-colorizer.lua' 
 Plug '907th/vim-auto-save'
-Plug 'tpope/vim-fugitive' 
+"Plug 'tpope/vim-fugitive' 
 Plug 'preservim/nerdtree' 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -65,27 +65,27 @@ hi ColorColumn ctermbg=80 guibg=red
 hi clear ColorColumn
 
 " Coc extensions
-let g:coc_global_extensions = [
-	    \ 'coc-clangd',
-	    \ 'coc-css',
-	    \ 'coc-emmet',
-	    \ 'coc-git',
-	    \ 'coc-go',
-	    \ 'coc-java',
-	    \ 'coc-json', 
-	    \ 'coc-pairs',
-	    \ 'coc-powershell',
-	    \ 'coc-eslint',
-	    \ 'coc-html',
-	    \ 'coc-prettier',
-	    \ 'coc-pyright',
-	    \ 'coc-phpls',
-	    \ 'coc-sh',
-	    \ 'coc-snippets',
-	    \ 'coc-sql',
-	    \ 'coc-translator',
-	    \ 'coc-tsserver',
-	    \ 'coc-xml']
+"let g:coc_global_extensions = [
+"	    \ 'coc-clangd',
+"	    \ 'coc-css',
+"	    \ 'coc-emmet',
+"	    \ 'coc-git',
+"	    \ 'coc-go',
+"	    \ 'coc-java',
+"	    \ 'coc-json', 
+"	    \ 'coc-pairs',
+"	    \ 'coc-powershell',
+"	    \ 'coc-eslint',
+"	    \ 'coc-html',
+"	    \ 'coc-prettier',
+"	    \ 'coc-pyright',
+"	    \ 'coc-phpls',
+"	    \ 'coc-sh',
+"	    \ 'coc-snippets',
+"	    \ 'coc-sql',
+"	    \ 'coc-translator',
+"	    \ 'coc-tsserver',
+"	    \ 'coc-xml']
 "            \ 'coc-spell-checker',
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -165,6 +165,57 @@ nnoremap <Leader>a :vertical resize-10<CR>
 inoremap jk <ESC>
 inoremap kj <ESC>
 inoremap JK <ESC>
-inoremap KJ <ESC>
+"inoremap KJ <ESC>
 " Disable ctrl+z
 nnoremap <C-z> <Nop>
+
+" FUNCTIONS
+" Compile and execute C
+func C()
+    exec "!clear && gcc % && ./a.out"
+endfunc
+map <silent> <C-r> :call C()<CR>
+
+" Compile and execute CPP
+func CPP()
+    exec "!clear && g++ % && ./a.out"
+endfunc
+map <silent> <C-r> :call CPP()<CR>
+
+" Compile & execute Rust
+func RUST()
+    exec "!clear && rustc %"
+endfunc
+map <silent <C-r> :call RUST()<CR>
+
+" Interpret Python
+func PYTHON()
+    exec "!clear && python %"
+endfunc
+map <silent> <C-r> :call PYTHON()<CR>
+
+" Compile Java
+func JAVA()
+    exec "!clear && javac % && java %:r"
+endfunc
+map <silent> <C-r> :call JAVA()<CR>
+
+" Interpret JavaScript
+func JAVSCRIPT()
+    exec "!clear && node %"
+endfunc
+map <silent> <C-r> :call JAVASCRIPT()<CR>
+
+" Interpret PHP
+func PHP()
+    exec "!clear && php %"
+endfunc
+map <silent> <C-r> :call PHP()<CR>
+
+autocmd Filetype c map <C-r> :call C()<CR>
+autocmd Filetype cpp map <C-r> :call CPP()<CR>
+autocmd Filetype rust map <C-r> :call RUST()<CR>
+autocmd Filetype python map <C-r> :call PYTHON()<CR>
+autocmd Filetype java map <C-r> :call JAVA()<CR>
+autocmd Filetype javascript map <C-r> :call JAVASCRIPT()<CR>
+autocmd Filetype php map <C-r> :call PHP()<CR>
