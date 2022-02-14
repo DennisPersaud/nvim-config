@@ -31,7 +31,7 @@ set completefunc=emoji#complete
 
 call plug#begin('~/AppData/Local/nvim-data/site/plugged')
 Plug 'ajmwagar/vim-deus'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
@@ -65,27 +65,27 @@ hi ColorColumn ctermbg=80 guibg=red
 hi clear ColorColumn
 
 " Coc extensions
-"let g:coc_global_extensions = [
-"	    \ 'coc-clangd',
-"	    \ 'coc-css',
-"	    \ 'coc-emmet',
-"	    \ 'coc-git',
-"	    \ 'coc-go',
-"	    \ 'coc-java',
-"	    \ 'coc-json', 
-"	    \ 'coc-pairs',
+let g:coc_global_extensions = [
+	    \ 'coc-clangd',
+	    \ 'coc-css',
+	    \ 'coc-emmet',
+	    \ 'coc-git',
+	    \ 'coc-go',
+	    \ 'coc-java',
+	    \ 'coc-json', 
+	    \ 'coc-pairs',
+	    \ 'coc-eslint',
+	    \ 'coc-html',
+	    \ 'coc-prettier',
+	    \ 'coc-pyright',
+	    \ 'coc-phpls',
+	    \ 'coc-sh',
+	    \ 'coc-snippets',
+	    \ 'coc-sql',
+	    \ 'coc-translator',
+	    \ 'coc-tsserver',
+	    \ 'coc-xml']
 "	    \ 'coc-powershell',
-"	    \ 'coc-eslint',
-"	    \ 'coc-html',
-"	    \ 'coc-prettier',
-"	    \ 'coc-pyright',
-"	    \ 'coc-phpls',
-"	    \ 'coc-sh',
-"	    \ 'coc-snippets',
-"	    \ 'coc-sql',
-"	    \ 'coc-translator',
-"	    \ 'coc-tsserver',
-"	    \ 'coc-xml']
 "            \ 'coc-spell-checker',
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -168,6 +168,13 @@ inoremap JK <ESC>
 "inoremap KJ <ESC>
 " Disable ctrl+z
 nnoremap <C-z> <Nop>
+" Switch Buffers
+nnoremap <C-l> :bn<CR> 
+nnoremap <C-h> :bp<CR> 
+
+" Disable Uppercase J & K in normal mode
+nnoremap <S-J> <Nop>
+nnoremap <S-k> <Nop>
 
 " FUNCTIONS
 " Compile and execute C
@@ -212,6 +219,12 @@ func PHP()
 endfunc
 map <silent> <C-b> :call PHP()<CR>
 
+" Compile Papyrus
+func PAPYRUS()
+	exec "!cls && papyruscompiler.exe %"
+endfunc
+map <silent> <C-b> :call PAPYRUS()<CR>
+
 autocmd Filetype c map <C-b> :call C()<CR>
 autocmd Filetype cpp map <C-b> :call CPP()<CR>
 autocmd Filetype rust map <C-b> :call RUST()<CR>
@@ -219,3 +232,4 @@ autocmd Filetype python map <C-b> :call PYTHON()<CR>
 autocmd Filetype java map <C-b> :call JAVA()<CR>
 autocmd Filetype javascript map <C-b> :call JAVSCRIPT()<CR>
 autocmd Filetype php map <C-b> :call PHP()<CR>
+autocmd Filetype psc map <C-b> :call PAPYRUS()<CR>
