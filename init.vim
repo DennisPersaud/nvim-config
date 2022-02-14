@@ -25,9 +25,9 @@ set signcolumn=yes
 set colorcolumn=80
 set updatetime=100
 set completefunc=emoji#complete
-set shell=pwsh shellquote=( shellpipe=\| shellxquote=
-set shellcmdflag=-NoLogo\ -ExecutionPolicy\ RemoteSigned\ -Command
-set shellredir=\|\ Out-File\ -Encoding\ UTF8
+"set shell=pwsh shellquote=( shellpipe=\| shellxquote=
+"set shellcmdflag=-NoLogo\ -ExecutionPolicy\ RemoteSigned\ -Command
+"set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
 call plug#begin('~/AppData/Local/nvim-data/site/plugged')
 Plug 'ajmwagar/vim-deus'
@@ -172,50 +172,50 @@ nnoremap <C-z> <Nop>
 " FUNCTIONS
 " Compile and execute C
 func C()
-    exec "!clear && gcc % && ./a.out"
+    exec "!cls && gcc % && a.exe"
 endfunc
-map <silent> <C-r> :call C()<CR>
+map <silent> <C-b> :call C()<CR>
 
 " Compile and execute CPP
 func CPP()
-    exec "!clear && g++ % && ./a.out"
+    exec "!cls && g++ % && a.exe"
 endfunc
-map <silent> <C-r> :call CPP()<CR>
+map <silent> <C-b> :call CPP()<CR>
 
 " Compile & execute Rust
 func RUST()
-    exec "!clear && rustc %"
+    exec "!cls && rustc % && %:r.exe"
 endfunc
-map <silent <C-r> :call RUST()<CR>
+map <silent> <C-b> :call RUST()<CR>
 
 " Interpret Python
 func PYTHON()
-    exec "!clear && python %"
+    exec "!cls && python %"
 endfunc
-map <silent> <C-r> :call PYTHON()<CR>
+map <silent> <C-b> :call PYTHON()<CR>
 
 " Compile Java
 func JAVA()
-    exec "!clear && javac % && java %:r"
+    exec "!cls && javac % && java %:r"
 endfunc
-map <silent> <C-r> :call JAVA()<CR>
+map <silent> <C-b> :call JAVA()<CR>
 
 " Interpret JavaScript
 func JAVSCRIPT()
-    exec "!clear && node %"
+    exec "!cls && node %"
 endfunc
-map <silent> <C-r> :call JAVASCRIPT()<CR>
+map <silent> <C-b> :call JAVSCRIPT()<CR>
 
 " Interpret PHP
 func PHP()
-    exec "!clear && php %"
+    exec "!cls && php %"
 endfunc
-map <silent> <C-r> :call PHP()<CR>
+map <silent> <C-b> :call PHP()<CR>
 
-autocmd Filetype c map <C-r> :call C()<CR>
-autocmd Filetype cpp map <C-r> :call CPP()<CR>
-autocmd Filetype rust map <C-r> :call RUST()<CR>
-autocmd Filetype python map <C-r> :call PYTHON()<CR>
-autocmd Filetype java map <C-r> :call JAVA()<CR>
-autocmd Filetype javascript map <C-r> :call JAVASCRIPT()<CR>
-autocmd Filetype php map <C-r> :call PHP()<CR>
+autocmd Filetype c map <C-b> :call C()<CR>
+autocmd Filetype cpp map <C-b> :call CPP()<CR>
+autocmd Filetype rust map <C-b> :call RUST()<CR>
+autocmd Filetype python map <C-b> :call PYTHON()<CR>
+autocmd Filetype java map <C-b> :call JAVA()<CR>
+autocmd Filetype javascript map <C-b> :call JAVSCRIPT()<CR>
+autocmd Filetype php map <C-b> :call PHP()<CR>
