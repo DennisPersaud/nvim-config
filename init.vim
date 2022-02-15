@@ -77,7 +77,6 @@ let g:coc_global_extensions = [
 	    \ 'coc-eslint',
 	    \ 'coc-html',
 	    \ 'coc-prettier',
-	    \ 'coc-pyright',
 	    \ 'coc-phpls',
 	    \ 'coc-sh',
 	    \ 'coc-snippets',
@@ -86,6 +85,7 @@ let g:coc_global_extensions = [
 	    \ 'coc-tsserver',
 	    \ 'coc-xml']
 "	    \ 'coc-powershell',
+"	    \ 'coc-pyright',
 "            \ 'coc-spell-checker',
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -203,7 +203,7 @@ map <silent> <C-b> :call PYTHON()<CR>
 
 " Compile Java
 func JAVA()
-    exec "!cls && javac % && java %:r"
+    exec "!cls && javac % && java %"
 endfunc
 map <silent> <C-b> :call JAVA()<CR>
 
@@ -219,12 +219,6 @@ func PHP()
 endfunc
 map <silent> <C-b> :call PHP()<CR>
 
-" Compile Papyrus
-func PAPYRUS()
-	exec "!cls && papyruscompiler.exe %"
-endfunc
-map <silent> <C-b> :call PAPYRUS()<CR>
-
 autocmd Filetype c map <C-b> :call C()<CR>
 autocmd Filetype cpp map <C-b> :call CPP()<CR>
 autocmd Filetype rust map <C-b> :call RUST()<CR>
@@ -232,4 +226,3 @@ autocmd Filetype python map <C-b> :call PYTHON()<CR>
 autocmd Filetype java map <C-b> :call JAVA()<CR>
 autocmd Filetype javascript map <C-b> :call JAVSCRIPT()<CR>
 autocmd Filetype php map <C-b> :call PHP()<CR>
-autocmd Filetype psc map <C-b> :call PAPYRUS()<CR>
