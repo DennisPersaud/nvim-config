@@ -249,6 +249,25 @@ func HASKELL()
 endfunc
 map <silent> <C-b> :call HASKELL()<CR>
 
+" Run Perl
+func PERL()
+	exec "!cls && perl %"
+endfunc
+map <silent> <C-b> :call PERL()<CR>
+
+" Run Bash
+func BASH()
+	exec "!cls && bash %"
+endfunc
+map <silent> <C-b> :call BASH()<CR>
+
+" Run Powershell
+func POWERSHELL()
+	exec "!cls && %"
+endfunc
+map <silent> <C-b> :call POWERSHELL()<CR>
+
+
 autocmd Filetype c map <C-b> :call C()<CR>
 autocmd Filetype cpp map <C-b> :call CPP()<CR>
 autocmd Filetype rust map <C-b> :call RUST()<CR>
@@ -261,4 +280,7 @@ autocmd Filetype php map <C-b> :call PHP()<CR>
 autocmd Filetype ruby map <C-b> :call RUBY()<CR>
 autocmd Filetype go map <C-b> :call GOLANG()<CR>
 autocmd Filetype haskell map <C-b> :call HASKELL()<CR>
+autocmd Filetype bash map <C-b> :call BASH()<CR>
+autocmd Filetype perl map <C-b> :call PERL()<CR>
+autocmd Filetype powershell map <C-b> :call POWERSHELL()<CR>
 
