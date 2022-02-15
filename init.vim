@@ -214,10 +214,16 @@ endfunc
 map <silent> <C-b> :call KOTLIN()<CR>
 
 " Interpret JavaScript
-func JAVSCRIPT()
+func JAVASCRIPT()
     exec "!cls && node %"
 endfunc
-map <silent> <C-b> :call JAVSCRIPT()<CR>
+map <silent> <C-b> :call JAVASCRIPT()<CR>
+
+" Interpret TypeScript
+func TYPESCRIPT()
+    exec "!cls && tsc % && node %:r.js"
+endfunc
+map <silent> <C-b> :call TYPESCRIPT()<CR>
 
 " Interpret PHP
 func PHP()
@@ -249,7 +255,8 @@ autocmd Filetype rust map <C-b> :call RUST()<CR>
 autocmd Filetype python map <C-b> :call PYTHON()<CR>
 autocmd Filetype java map <C-b> :call JAVA()<CR>
 autocmd Filetype kotlin map <C-b> :call KOTLIN()<CR>
-autocmd Filetype javascript map <C-b> :call JAVSCRIPT()<CR>
+autocmd Filetype javascript map <C-b> :call JAVASCRIPT()<CR>
+autocmd Filetype typescript map <C-b> :call TYPESCRIPT()<CR>
 autocmd Filetype php map <C-b> :call PHP()<CR>
 autocmd Filetype ruby map <C-b> :call RUBY()<CR>
 autocmd Filetype go map <C-b> :call GOLANG()<CR>
