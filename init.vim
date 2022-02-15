@@ -207,6 +207,12 @@ func JAVA()
 endfunc
 map <silent> <C-b> :call JAVA()<CR>
 
+" Compile Kotlin
+func KOTLIN()
+    exec "!cls && kotlinc % -include-runtime -d %:r.jar && java -jar %:r.jar"
+endfunc
+map <silent> <C-b> :call KOTLIN()<CR>
+
 " Interpret JavaScript
 func JAVSCRIPT()
     exec "!cls && node %"
@@ -219,10 +225,33 @@ func PHP()
 endfunc
 map <silent> <C-b> :call PHP()<CR>
 
+" Run Ruby
+func RUBY()
+	exec "!cls && ruby %"
+endfunc
+map <silent> <C-b> :call RUBY()<CR>
+
+" Build Go
+func GOLANG()
+	exec "!cls && go build % && %:r.exe"
+endfunc
+map <silent> <C-b> :call GOLANG()<CR>
+
+" Compile Haskell
+func HASKELL()
+	exec "!cls && ghc % && % && %:r.exe"
+endfunc
+map <silent> <C-b> :call HASKELL()<CR>
+
 autocmd Filetype c map <C-b> :call C()<CR>
 autocmd Filetype cpp map <C-b> :call CPP()<CR>
 autocmd Filetype rust map <C-b> :call RUST()<CR>
 autocmd Filetype python map <C-b> :call PYTHON()<CR>
 autocmd Filetype java map <C-b> :call JAVA()<CR>
+autocmd Filetype kotlin map <C-b> :call KOTLIN()<CR>
 autocmd Filetype javascript map <C-b> :call JAVSCRIPT()<CR>
 autocmd Filetype php map <C-b> :call PHP()<CR>
+autocmd Filetype ruby map <C-b> :call RUBY()<CR>
+autocmd Filetype go map <C-b> :call GOLANG()<CR>
+autocmd Filetype haskell map <C-b> :call HASKELL()<CR>
+
