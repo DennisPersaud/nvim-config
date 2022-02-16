@@ -1,4 +1,3 @@
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      ██▓ ███▄    █  ██▓▄▄▄█████▓      ██▒   █▓ ██▓ ███▄ ▄███▓
 "     ▓██▒ ██ ▀█   █ ▓██▒▓  ██▒ ▓▒     ▓██░   █▒▓██▒▓██▒▀█▀ ██▒
@@ -46,6 +45,7 @@ set completefunc=emoji#complete
 call plug#begin('~/AppData/Local/nvim-data/site/plugged')
 Plug 'ajmwagar/vim-deus'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mfussenegger/nvim-dap'
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
@@ -101,6 +101,7 @@ let g:coc_global_extensions = [
 	    \ 'coc-xml']
 "	    \ 'coc-powershell',
 "            \ 'coc-spell-checker',
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " Formatting selected code.
