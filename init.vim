@@ -46,12 +46,12 @@ call plug#begin('~/AppData/Local/nvim-data/site/plugged')
 Plug 'ajmwagar/vim-deus'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mfussenegger/nvim-dap'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'norcalli/nvim-colorizer.lua' 
-Plug '907th/vim-auto-save'
+"Plug '907th/vim-auto-save'
 "Plug 'tpope/vim-fugitive' 
 Plug 'preservim/nerdtree' 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -105,15 +105,15 @@ let g:coc_global_extensions = [
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nnoremap <leader>f  <Plug>(coc-format-selected)
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-" Run formatter on save
-augroup SWIMKILLS
-    autocmd!
-    autocmd BufWrite * silent! Format
-augroup END
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nnoremap <leader>f  <Plug>(coc-format-selected)
+" " Add `:Format` command to format current buffer.
+" command! -nargs=0 Format :call CocAction('format')
+" " Run formatter on save
+" augroup SWIMKILLS
+"     autocmd!
+"     autocmd BufWrite * silent! Format
+" augroup END
 
 " Airline config
 let g:airline_powerline_fonts=1
