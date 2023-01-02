@@ -19,6 +19,7 @@ set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
+set sidescrolloff=20
 set completeopt=menuone,noinsert,noselect
 set encoding=utf-8
 set signcolumn=yes
