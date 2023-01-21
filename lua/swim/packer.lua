@@ -75,13 +75,25 @@ require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("jiangmiao/auto-pairs")
 	use("akinsho/toggleterm.nvim")
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 
 	-- Theme
 	use("ajmwagar/vim-deus")
 	use("norcalli/nvim-colorizer.lua")
 	use("nvim-lualine/lualine.nvim")
 	use("nvim-tree/nvim-web-devicons")
-	use("goolord/alpha-nvim")
+	-- use("goolord/alpha-nvim")
 	use("akinsho/bufferline.nvim")
 
 	if is_bootstrap then

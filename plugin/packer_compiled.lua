@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\dpers\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["alpha-nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\dpers\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\alpha-nvim",
-    url = "https://github.com/goolord/alpha-nvim"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "C:\\Users\\dpers\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\auto-pairs",
@@ -268,10 +263,20 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\dpers\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
+  },
+  ["which-key.nvim"] = {
+    config = { "\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0" },
+    loaded = true,
+    path = "C:\\Users\\dpers\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
