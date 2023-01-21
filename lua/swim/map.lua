@@ -11,6 +11,7 @@ map("i", "jk", "<ESC>", options)
 map("i", "kj", "<ESC>", options)
 map("i", "JK", "<ESC>", options)
 map("i", "<C-c>", "<Esc>", options)
+map("n", "<C-c>", "<Esc>", options)
 
 -- J Fix
 map("n", "J", "mzJ`z", options)
