@@ -48,3 +48,6 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", options)
 
 -- Diable Uppercase J
 map("n", "<S-J>", "<Nop>", options)
+
+-- Lazy Git
+map("n", "<c-g>", ":LazyGit<CR>", options)
