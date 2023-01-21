@@ -71,6 +71,7 @@ require("packer").startup(function(use)
 
 	-- Miscellaneous
 	use("mbbill/undotree")
+	use("airblade/vim-gitgutter")
 	use("udalov/kotlin-vim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("jiangmiao/auto-pairs")
