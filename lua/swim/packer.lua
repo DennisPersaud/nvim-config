@@ -30,7 +30,7 @@ require("packer").startup(function(use)
 	use("nvim-treesitter/playground")
 
 	-- Git
-	use("tpope/vim-fugitive")
+	use("kdheepak/lazygit.nvim")
 	use("tpope/vim-rhubarb")
 
 	-- LSP, DAP, Linter, Formatter
@@ -81,6 +81,8 @@ require("packer").startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("nvim-lualine/lualine.nvim")
 	use("nvim-tree/nvim-web-devicons")
+	use("goolord/alpha-nvim")
+	use("akinsho/bufferline.nvim")
 
 	if is_bootstrap then
 		require("packer").sync()
