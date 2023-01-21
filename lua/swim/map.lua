@@ -33,10 +33,10 @@ map("n", "<C-l>", ":bn<CR>", options)
 map("n", "<C-h>", ":bp<CR>", options)
 
 -- Resize Split
--- map("n", "<C-S-i>i", ":resize-10<CR>", options)
--- map("n", "<Leader>j", ":vertical resize+10<CR>", options)
+-- map("n", "<C-w-i>i", ":resize-10<CR>", options)
 -- map("n", "<Leader>k", ":resize+10<CR>", options)
--- map("n", "<Leader>l", ":vertical resize-10<CR>", options)
+-- map("n", "<C-w-[>", ":vertical resize+10<CR>", options)
+-- map("n", "<C-w-]>", ":vertical resize-10<CR>", options)
 
 -- Shift Lines
 map("n", "<A-j>", ":m .+1<CR>==", options)
