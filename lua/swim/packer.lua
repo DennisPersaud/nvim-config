@@ -65,8 +65,8 @@ require("packer").startup(function(use)
 	use("wesleimp/stylua.nvim")
 
 	-- DAP
-	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
+	use("mfussenegger/nvim-dap")
 	use("jayp0521/mason-nvim-dap.nvim")
 
 	-- Miscellaneous
