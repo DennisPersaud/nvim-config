@@ -14,3 +14,10 @@ vim.keymap.set("n", "<leader>ro", ":lua require'dap'.repl.open()<CR>", opts)
 -- Dap UI
 require("dapui").setup()
 vim.keymap.set("n", "<leader>dt", "require(''dapui').toggle()<CR>", opts)
+
+-- :h dap.txt search:breakpoint
+vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapLogPoint", { text = "📝", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "⛔", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "❌", texthl = "", linehl = "", numhl = "" })
