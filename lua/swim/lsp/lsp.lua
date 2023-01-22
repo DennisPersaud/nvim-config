@@ -51,6 +51,7 @@ lsp.on_attach(function(client, bufnr)
 		vim.lsp.buf.signature_help()
 	end, opts)
 
+	-- Displays error diagnostic gl
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
 	end, opts)
@@ -92,7 +93,7 @@ null_ls.setup({
 	end,
 	sources = {
 		-- Replace these with the tools you have installed
-        -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+		-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.autopep8,
 		null_ls.builtins.formatting.csharpier,
@@ -103,13 +104,13 @@ null_ls.setup({
 		null_ls.builtins.formatting.perltidy,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.tidy,
-        -- diagnostics
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.diagnostics.jsonlint,
-        null_ls.builtins.diagnostics.cpplint,
-        null_ls.builtins.diagnostics.cppcheck,
-        null_ls.builtins.diagnostics.php,
-        null_ls.builtins.diagnostics.tidy,
+		-- diagnostics
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.diagnostics.jsonlint,
+		null_ls.builtins.diagnostics.cpplint,
+		null_ls.builtins.diagnostics.cppcheck,
+		null_ls.builtins.diagnostics.php,
+		null_ls.builtins.diagnostics.tidy,
 	},
 })
 
