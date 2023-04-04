@@ -68,9 +68,12 @@ require("packer").startup(function(use)
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("jayp0521/mason-nvim-dap.nvim")
 
+	-- Magma
+	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
+
 	-- Miscellaneous
 	use("mbbill/undotree")
-	use("airblade/vim-gitgutter")
+	use("lewis6991/gitsigns.nvim")
 	use("udalov/kotlin-vim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("jiangmiao/auto-pairs")
