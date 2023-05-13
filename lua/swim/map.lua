@@ -113,8 +113,8 @@ vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "go",
 	callback = function()
 		vim.schedule(function()
-			print("howdy go")
-			map("n", "<c-b>", ":!go %<CR>", options)
+			map("n", "<c-b>", ":!go build %<CR>", options)
+			map("n", "<c-r>", ":!go run %<CR>", options)
 		end)
 	end,
 })
