@@ -103,7 +103,6 @@ vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "javascript",
 	callback = function()
 		vim.schedule(function()
-			print("howdy javascript")
 			map("n", "<c-b>", ":!node %<CR>", options)
 		end)
 	end,
@@ -123,7 +122,6 @@ vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "rust",
 	callback = function()
 		vim.schedule(function()
-			print("howdy rust")
 			map("n", "<c-b>", ":!rustc %<CR>", options)
 		end)
 	end,
