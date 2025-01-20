@@ -26,8 +26,8 @@ require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Syntax Highlighting/Intellisense/AST
-	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-	use("nvim-treesitter/playground")
+	-- use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	-- use("nvim-treesitter/playground")
 
 	-- Git
 	use("kdheepak/lazygit.nvim")
@@ -65,8 +65,9 @@ require("packer").startup(function(use)
 	use("wesleimp/stylua.nvim")
 
 	-- DAP
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 	use("jayp0521/mason-nvim-dap.nvim")
+	--use({ "nvim-neotest/nvim-nio" })
 
 	-- Magma
 	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
@@ -75,7 +76,7 @@ require("packer").startup(function(use)
 	use("mbbill/undotree")
 	use("lewis6991/gitsigns.nvim")
 	use("udalov/kotlin-vim")
-	use("lukas-reineke/indent-blankline.nvim")
+	use({ "lukas-reineke/indent-blankline.nvim", rev = "v.2.20.8" })
 	use("jiangmiao/auto-pairs")
 	use("akinsho/toggleterm.nvim")
 	use({

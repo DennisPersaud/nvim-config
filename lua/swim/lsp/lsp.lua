@@ -4,7 +4,7 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	"tsserver",
+	"ts_ls",
 	"eslint",
 	"lua_ls",
 	"rust_analyzer",
@@ -85,7 +85,8 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					vim.lsp.buf.formatting_sync()
+					-- vim.lsp.buf.formatting_sync()
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end
@@ -131,7 +132,7 @@ local servers = {
 	gopls = {},
 	pyright = {},
 	rust_analyzer = {},
-	tsserver = {},
+	ts_ls = {},
 
 	lua_ls = {
 		Lua = {
