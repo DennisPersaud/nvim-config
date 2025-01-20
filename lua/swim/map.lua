@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "cpp",
 	callback = function()
 		vim.schedule(function()
-			map("n", "<c-b>", ":!gcc %<CR>", options)
+			map("n", "<c-b>", ":!g++ %<CR>", options)
 		end)
 	end,
 })
