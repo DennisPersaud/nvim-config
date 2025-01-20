@@ -26,8 +26,8 @@ require("packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Syntax Highlighting/Intellisense/AST
-	-- use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-	-- use("nvim-treesitter/playground")
+	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	use("nvim-treesitter/playground")
 
 	-- Git
 	use("kdheepak/lazygit.nvim")

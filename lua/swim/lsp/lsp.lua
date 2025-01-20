@@ -8,7 +8,7 @@ lsp.ensure_installed({
 	"eslint",
 	"lua_ls",
 	"rust_analyzer",
-	"pyright",
+	-- "pyright",
 })
 
 -- Fix Undefined global 'vim'
@@ -130,7 +130,7 @@ require("neodev").setup()
 local servers = {
 	clangd = {},
 	gopls = {},
-	pyright = {},
+	-- pyright = {},
 	rust_analyzer = {},
 	ts_ls = {},
 
