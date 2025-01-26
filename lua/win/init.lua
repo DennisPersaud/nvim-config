@@ -1,0 +1,5 @@
+require("win.packer")
+require("win/lsp")
+require("win.set")
+require("win.map")
+require("win.functions")
