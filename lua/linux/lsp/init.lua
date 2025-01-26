@@ -1,3 +1,3 @@
-require("linux.lsp.lsp")
-require("linux.lsp.cmp")
-require("linux.lsp.dap")
+-- require("linux.lsp.lsp")
+-- require("linux.lsp.cmp")
+-- require("linux.lsp.dap")

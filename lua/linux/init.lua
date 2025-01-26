@@ -1,5 +1,5 @@
-require("linux.packer")
-require("linux/lsp")
+-- require("linux.packer")
+-- require("linux/lsp")
 require("linux.set")
 require("linux.map")
 require("linux.functions")
