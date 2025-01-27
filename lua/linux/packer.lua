@@ -34,28 +34,28 @@ require("packer").startup(function(use)
 	use("tpope/vim-rhubarb")
 
 	-- LSP, DAP, Linter, Formatter
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		requires = {
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
+	-- use({
+	-- 	"VonHeikemen/lsp-zero.nvim",
+	-- 	requires = {
+	-- 		-- LSP Support
+	-- 		{ "neovim/nvim-lspconfig" },
+	-- 		{ "williamboman/mason.nvim" },
+	-- 		{ "williamboman/mason-lspconfig.nvim" },
 
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
+	-- 		-- Autocompletion
+	-- 		{ "hrsh7th/nvim-cmp" },
+	-- 		{ "hrsh7th/cmp-buffer" },
+	-- 		{ "hrsh7th/cmp-path" },
+	-- 		{ "saadparwaiz1/cmp_luasnip" },
+	-- 		{ "hrsh7th/cmp-nvim-lsp" },
+	-- 		{ "hrsh7th/cmp-nvim-lua" },
 
-			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-			-- Snippet Collection (Optional)
-			{ "rafamadriz/friendly-snippets" },
-		},
-	})
+	-- 		-- Snippets
+	-- 		{ "L3MON4D3/LuaSnip" },
+	-- 		-- Snippet Collection (Optional)
+	-- 		{ "rafamadriz/friendly-snippets" },
+	-- 	},
+	-- })
 	use("folke/neodev.nvim")
 	use("onsails/lspkind.nvim")
 
@@ -76,21 +76,21 @@ require("packer").startup(function(use)
 	use("mbbill/undotree")
 	use("lewis6991/gitsigns.nvim")
 	use("udalov/kotlin-vim")
-	use({ "lukas-reineke/indent-blankline.nvim", rev = "v.2.20.8" })
+	-- use({ "lukas-reineke/indent-blankline.nvim", rev = "v.2.20.8" })
 	use("jiangmiao/auto-pairs")
 	use("akinsho/toggleterm.nvim")
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-			require("which-key").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	})
+	-- use({
+	-- 	"folke/which-key.nvim",
+	-- 	config = function()
+	-- 		vim.o.timeout = true
+	-- 		vim.o.timeoutlen = 300
+	-- 		require("which-key").setup({
+	-- 			-- your configuration comes here
+	-- 			-- or leave it empty to use the default settings
+	-- 			-- refer to the configuration section below
+	-- 		})
+	-- 	end,
+	-- })
 
 	-- Theme
 	use("ajmwagar/vim-deus")
