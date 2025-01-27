@@ -33,6 +33,17 @@ require("packer").startup(function(use)
 	use("kdheepak/lazygit.nvim")
 	use("tpope/vim-rhubarb")
 
+	-- Docker
+	use({
+		"crnvl96/lazydocker.nvim",
+		config = function()
+			require("lazydocker").setup()
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+		},
+	})
+
 	-- LSP, DAP, Linter, Formatter
 	use({
 		"VonHeikemen/lsp-zero.nvim",

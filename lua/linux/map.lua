@@ -53,6 +53,9 @@ map("n", "<S-J>", "<Nop>", options)
 -- Lazy Git
 map("n", "<c-g>", ":LazyGit<CR>", options)
 
+-- Lazy Docker
+map("n", "<C-i>", ":LazyDocker<CR>", options)
+
 -- BUILD FILE
 vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "c",
