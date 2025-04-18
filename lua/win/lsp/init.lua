@@ -1,3 +1,4 @@
-require("win.lsp.lsp")
+require("win.lsp.mason")
 require("win.lsp.cmp")
 require("win.lsp.dap")
+require("win.lsp.stylua")

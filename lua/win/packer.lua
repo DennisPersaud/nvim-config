@@ -25,10 +25,6 @@ require("packer").startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-	-- Syntax Highlighting/Intellisense/AST
-	-- use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-	-- use("nvim-treesitter/playground")
-
 	-- Git
 	use("kdheepak/lazygit.nvim")
 	use("tpope/vim-rhubarb")
@@ -44,44 +40,69 @@ require("packer").startup(function(use)
 		},
 	})
 
-	-- LSP, DAP, Linter, Formatter
-	use({
-		"VonHeikemen/lsp-zero.nvim",
-		requires = {
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-
-			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-			-- Snippet Collection (Optional)
-			{ "rafamadriz/friendly-snippets" },
-		},
-	})
-	use("folke/neodev.nvim")
-	use("onsails/lspkind.nvim")
-
-	-- Formatters
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("jay-babu/mason-null-ls.nvim")
-	use("wesleimp/stylua.nvim")
+	 -- LSP, DAP, Linter, Formatter
+	 use({
+		-- Mason LSP
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+		-- Formatter
+		"mhartington/formatter.nvim",
+		-- Linter
+		"mfussenegger/nvim-lint",
+	 })
 
 	-- DAP
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 	use("jayp0521/mason-nvim-dap.nvim")
 	--use({ "nvim-neotest/nvim-nio" })
+  
+    -- Code Completion
+    use({
+        'hrsh7th/nvim-cmp',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        -- Luasnip
+        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+        -- Lspkind
+        'onsails/lspkind.nvim',
+        -- Snippets
+        'rafamadriz/friendly-snippets'
+    })
+
+	-- Syntax Highlighting/Intellisense/AST
+	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	use("nvim-treesitter/playground")
 
 	-- Magma
 	use({ "dccsillag/magma-nvim", run = ":UpdateRemotePlugins" })
+    
+    -- Avante LLM
+    -- use({
+    --     -- Required plugins
+    --     'nvim-treesitter/nvim-treesitter',
+    --     'stevearc/dressing.nvim',
+    --     'nvim-lua/plenary.nvim',
+    --     'MunifTanjim/nui.nvim',
+    --     'MeanderingProgrammer/render-markdown.nvim',
+
+    --     -- Optional dependencies
+    --     'HakonHarnes/img-clip.nvim',
+    --     'zbirenbaum/copilot.lua',
+    -- })
+
+    -- -- Avante.nvim with build process
+    -- use {
+    --   'yetone/avante.nvim',
+    --   branch = 'main',
+    --   run = 'make',
+    --   config = function()
+    --     require('avante').setup()
+    --   end
+    -- }
 
 	-- Miscellaneous
 	use("mbbill/undotree")
@@ -115,7 +136,6 @@ require("packer").startup(function(use)
 		require("packer").sync()
 	end
 end)
-
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --

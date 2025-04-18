@@ -1,3 +1,4 @@
+--require("win.kickstart")
 require("win.packer")
 require("win/lsp")
 require("win.set")

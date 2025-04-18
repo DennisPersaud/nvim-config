@@ -4,8 +4,12 @@ local lspkind = require("lspkind")
 -- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
+    completion = { 
+        completeopt = "menu,menuone,preview,noselect",
+    },
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -48,7 +52,14 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
-			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local kind = lspkind.cmp_format({ 
+                mode = "symbol_text", 
+                maxwidth = 50, 
+                ellipsis_char = "...", 
+                show_labelDetails = true,
+                -- The function below will be called before any actual modification from lspkind
+                -- so that you can provide more controls on popup customization.
+            })(entry, vim_item)
 			local strings = vim.split(kind.kind, "%s", { trimempty = true })
 			kind.kind = " " .. (strings[1] or "") .. " "
 			kind.menu = ({
