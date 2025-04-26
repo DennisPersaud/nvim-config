@@ -1,0 +1,6 @@
+--require("win.kickstart")
+require("win.lazy")
+-- require("win/lsp")
+require("win.options")
+require("win.keymaps")
+require("win.autocmds")
