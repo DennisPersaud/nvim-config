@@ -23,11 +23,14 @@ return {
 			-- require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
 				sources = cmp.config.sources({
+					per_filetype = {},
+					{ name = "lazydev" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 					-- { name = "vsnip" }, -- For vsnip users.
 					-- { name = 'ultisnips' }, -- For ultisnips users.
 					-- { name = 'snippy' }, -- For snippy users.
+					{ name = "codecompanion" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },

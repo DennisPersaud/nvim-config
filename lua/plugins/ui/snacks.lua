@@ -1,6 +1,7 @@
 return {
 	{
 		"folke/snacks.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		enabled = true,
 		opts = {
 			-- your configuration comes here

@@ -12,7 +12,9 @@ return {
 		},
 		config = function()
 			local dap = require("dap")
+			require("dap-go").setup()
 			require("dapui").setup()
+
 			vim.keymap.set("n", "<F5>", function()
 				dap.continue()
 			end)
@@ -66,6 +68,16 @@ return {
 				local widgets = require("dap.ui.widgets")
 				widgets.centered_float(widgets.scopes)
 			end)
+
+			-- Dap UI
+			vim.keymap.set("n", "<leader>dt", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
+
+			-- :h dap.txt search:breakpoint
+			vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+			vim.fn.sign_define("DapBreakpointCondition", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+			vim.fn.sign_define("DapLogPoint", { text = "📝", texthl = "", linehl = "", numhl = "" })
+			vim.fn.sign_define("DapStopped", { text = "⛔", texthl = "", linehl = "", numhl = "" })
+			vim.fn.sign_define("DapBreakpointRejected", { text = "❌", texthl = "", linehl = "", numhl = "" })
 		end,
 	},
 }

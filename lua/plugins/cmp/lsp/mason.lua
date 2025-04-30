@@ -40,6 +40,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
+					"clangd",
 					"pyright",
 					"eslint",
 					"emmet_language_server",
@@ -60,7 +61,7 @@ return {
 					"jsonls",
 					"kotlin_language_server",
 					"nginx_language_server",
-					"snyk_ls",
+					-- "snyk_ls",
 					"solidity",
 					"terraformls",
 					"sqlls",
@@ -95,6 +96,14 @@ return {
 						},
 					})
 				end,
+				-- 				["clangd"] = function()
+				-- 					local lspconfig = require("lspconfig")
+				-- 					lspconfig.lua_ls.setup({
+				-- 						settings = {
+				-- 							fallbackFlags = { "--std=c++20" },
+				-- 						},
+				-- 					})
+				-- 				end,
 			})
 		end,
 	},
