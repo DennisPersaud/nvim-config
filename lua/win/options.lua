@@ -6,16 +6,20 @@ vim.cmd.colorscheme("deus")
 
 ---@param colors ColorScheme
 on_colors = function(colors)
-    colors.bg_statusline = colors.none
-end,
-
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	colors.bg_statusline = colors.none
+end, vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.g["deus_termcolors"] = 256
 
 vim.opt.guicursor = ""
 
 vim.g.have_nerd_font = true
+
+-- spell checking
+vim.opt.spell = true
+vim.opt.spelllang = { "en" } -- Set your desired languages
+vim.cmd("highlight SpellBadUnderline guisp=red cterm=underline term=underline")
+vim.cmd("highlight SpellBad gui=undercurl guisp=red cterm=undercurl")
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
