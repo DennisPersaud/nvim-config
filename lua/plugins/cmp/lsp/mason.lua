@@ -1,7 +1,6 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-
 		dependencies = {
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
@@ -48,7 +47,42 @@ return {
 						})
 					end,
 				},
-				automatic_enable = {},
+				automatic_enable = {
+					"lua_ls",
+					"clangd",
+					"pyright",
+					"eslint",
+					"emmet_language_server",
+					"emmet_ls",
+					"ansiblels",
+					"angularls",
+					"autotools_ls",
+					"awk_ls",
+					"bashls",
+					"cmake",
+					-- "csharp_ls",
+					"cssls",
+					"docker_compose_language_service",
+					"dockerls",
+					"groovyls",
+					"graphql",
+					"htmx",
+					"jsonls",
+					"kotlin_language_server",
+					"nginx_language_server",
+					-- "snyk_ls",
+					"solidity",
+					"terraformls",
+					"sqlls",
+					"ts_ls",
+					"yamlls",
+					"html",
+					"tailwindcss",
+					"tflint",
+					"marksman",
+					"cucumber_language_server",
+					-- "gopls",
+				},
 				automatic_installation = {
 					"lua_ls",
 					"clangd",
@@ -127,7 +161,9 @@ return {
 				settings = {
 					Lua = {
 						diagnostics = {
+							workspace = { checkThirdParty = false, library = vim.api.nvim_get_runtime_file("", true) },
 							globals = { "vim", "require" },
+							disable = { "undefined_global", "missing-parameters", "missing-fields" },
 						},
 					},
 				},

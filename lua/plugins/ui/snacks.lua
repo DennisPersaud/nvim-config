@@ -3,6 +3,7 @@ return {
 		"folke/snacks.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		enabled = true,
+		event = "VeryLazy",
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
@@ -19,10 +20,25 @@ return {
 			scroll = { enabled = true },
 			terminal = { enabled = true },
 			-- Snacks.picker.actions.toggle_live(picker)
-			picker = { enabled = true }, -- conflicts with telecope
+			picker = {
+				enabled = true, -- conflicts with telecope
+				formatters = {
+					file = {
+						filename_first = true,
+					},
+				},
+				icons = {
+					files = {
+						enabled = false,
+					},
+				},
+			},
 			explorer = {
-				replace_netrw = true, -- Replace netrw with the snacks explorer
-				enabled = true,
+				---@class snacks.explorer.Config
+				{
+					replace_netrw = true, -- Replace netrw with the snacks explorer
+					enabled = true,
+				},
 			},
 			dashboard = {
 				width = 60,

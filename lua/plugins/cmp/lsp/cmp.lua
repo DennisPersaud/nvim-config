@@ -43,13 +43,13 @@ return {
 					-- documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-n>"] = cmp.mapping.select_next_item(),
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-					["<C-d>"] = cmp.mapping.scroll_docs(-4),
-					["<C-u>"] = cmp.mapping.scroll_docs(4),
-					["<C-c>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					[":silent <C-n>"] = cmp.mapping.select_next_item(),
+					[":silent <C-p>"] = cmp.mapping.select_prev_item(),
+					[":silent <C-d>"] = cmp.mapping.scroll_docs(-4),
+					[":silent <C-u>"] = cmp.mapping.scroll_docs(4),
+					[":silent <C-c>"] = cmp.mapping.complete(),
+					[":silent <C-e>"] = cmp.mapping.abort(),
+					[":silent <CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				snippet = {
 
