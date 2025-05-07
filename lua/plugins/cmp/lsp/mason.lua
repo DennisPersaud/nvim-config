@@ -38,6 +38,53 @@ return {
 			-- MASON SETUP
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
+				handlers = {
+					-- AUTOMATIC SERVER CONFIGURATION
+					function(server_name) -- default handler (optional)
+						-- local lsp_capabilities = require("blink.cmp").get_lsp_capabilities() -- Blink.CMP
+						local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities() -- CMP
+						require("lspconfig")[server_name].setup({
+							capabilities = lsp_capabilities, -- Activate CMP Capabilities
+						})
+					end,
+				},
+				automatic_enable = {},
+				automatic_installation = {
+					"lua_ls",
+					"clangd",
+					"pyright",
+					"eslint",
+					"emmet_language_server",
+					"emmet_ls",
+					"ansiblels",
+					"angularls",
+					"autotools_ls",
+					"awk_ls",
+					"bashls",
+					"cmake",
+					-- "csharp_ls",
+					"cssls",
+					"docker_compose_language_service",
+					"dockerls",
+					"groovyls",
+					"graphql",
+					"htmx",
+					"jsonls",
+					"kotlin_language_server",
+					"nginx_language_server",
+					-- "snyk_ls",
+					"solidity",
+					"terraformls",
+					"sqlls",
+					"ts_ls",
+					"yamlls",
+					"html",
+					"tailwindcss",
+					"tflint",
+					"marksman",
+					"cucumber_language_server",
+					-- "gopls",
+				},
 				ensure_installed = {
 					"lua_ls",
 					"clangd",
@@ -72,38 +119,23 @@ return {
 					"tflint",
 					"marksman",
 					"cucumber_language_server",
-					"gopls",
+					-- "gopls",
 				},
 			})
-			-- AUTOMATIC SERVER CONFIGURATION
-			-- local lsp_capabilities = require("blink.cmp").get_lsp_capabilities() -- Blink.CMP
-			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities() -- CMP
-			require("mason-lspconfig").setup_handlers({
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({
-						capabilities = lsp_capabilities, -- Activate CMP Capabilities
-					})
-				end,
-				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.lua_ls.setup({
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim" },
-								},
-							},
+			-- CONFIGURE LSP SERVERS
+			vim.lsp.config("lua_ls", {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim", "require" },
 						},
-					})
-				end,
-				-- 				["clangd"] = function()
-				-- 					local lspconfig = require("lspconfig")
-				-- 					lspconfig.lua_ls.setup({
-				-- 						settings = {
-				-- 							fallbackFlags = { "--std=c++20" },
-				-- 						},
-				-- 					})
-				-- 				end,
+					},
+				},
+			})
+			vim.lsp.config("clangd", {
+				settings = {
+					fallbackFlags = { "--std=c++20" },
+				},
 			})
 		end,
 	},

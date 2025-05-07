@@ -70,6 +70,7 @@ return {
 	{
 		-- Integrate Maosn with conform
 		"zapling/mason-conform.nvim",
+        enabled = true,
 		dependencies = { "stevearc/conform.nvim" },
 		config = function()
 			require("mason-conform").setup()
