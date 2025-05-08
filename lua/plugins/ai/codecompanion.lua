@@ -2,6 +2,7 @@ return {
 	{
 		"olimorris/codecompanion.nvim",
 		enabled = true,
+		lazy = true,
 		opts = {},
 		dependencies = {
 			{ "nvim-lua/plenary.nvim", branch = "master" },

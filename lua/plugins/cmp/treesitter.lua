@@ -2,7 +2,12 @@ return {
 	{
 		{
 			"nvim-treesitter/nvim-treesitter",
+			lazy = true,
 			build = ":TSUpdate",
+			dependencies = {
+				"nvim-treesitter/playground",
+				lazy = true,
+			},
 			opts = {
 				-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 				ensure_installed = {
@@ -79,6 +84,9 @@ return {
 				},
 			},
 		},
-		"nvim-treesitter/playground",
+		-- {
+		-- 	"nvim-treesitter/playground",
+		-- 	lazy = true,
+		-- },
 	},
 }

@@ -1,7 +1,7 @@
 return {
 	{
 		"folke/noice.nvim",
-		enabled = true, -- pluggin has issues with macro functionality
+		enabled = true, -- plugin has issues with macro functionality
 		event = "VeryLazy",
 		config = function()
 			require("noice").setup({
