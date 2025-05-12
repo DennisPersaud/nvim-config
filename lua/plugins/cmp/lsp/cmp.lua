@@ -20,9 +20,15 @@ return {
 		},
 		config = function()
 			-- Snippets
+			local ls = require("luasnip")
+			ls.config.set_config({
+				history = true, -- keep around last snippet local to jump back
+				enabled_autosnippets = true,
+			})
 			require("luasnip.loaders.from_vscode").lazy_load()
-			require("luasnip").filetype_extend("javascript", { "javascriptreact" })
-			require("luasnip").filetype_extend("javascript", { "html" })
+			ls.filetype_extend("javascript", { "javascriptreact" })
+			ls.filetype_extend("javascript", { "html" })
+
 			local lspkind = require("lspkind")
 
 			-- require("luasnip.loaders.from_vscode").lazy_load()
@@ -67,6 +73,12 @@ return {
 				--                   {name = 'nvim_lsp'},
 				--               },
 				window = {
+					completion = {
+						border = "rounded",
+					},
+					documentation = {
+						border = "rounded",
+					},
 					-- completion = cmp.config.window.bordered(),
 					-- documentation = cmp.config.window.bordered(),
 				},
@@ -80,7 +92,6 @@ return {
 					[":silent <CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				snippet = {
-
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
 					end,

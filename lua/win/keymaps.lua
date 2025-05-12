@@ -6,7 +6,7 @@ local LazyDocker = require("lazydocker")
 -- Set space to leader
 vim.g.mapleader = " "
 
--- Open Explorere
+-- Open Explorer
 -- vim.keymap.set("n", "\\\\", ":Lexplore<CR>")
 vim.keymap.set("n", "\\\\", function()
 	Snacks.explorer()
@@ -84,7 +84,7 @@ vim.keymap.set("n", "<C-n>h", function()
 	Snacks.notifier.show_history()
 end, { silent = true, desc = "Toggle Snacks Dashboard" })
 
--- DAP 14b2ffa6-efc5-4d98-b8f7-302c5a8a0e71
+-- DAP
 vim.keymap.set("n", "<F10>", function()
 	require("dapui").toggle()
 end, { silent = true, desc = "Toggle DAPUI" })
