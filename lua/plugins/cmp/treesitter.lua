@@ -119,4 +119,7 @@ return {
 			},
 		},
 	},
+	{
+		"nvim-treesitter/playground",
+	},
 }
