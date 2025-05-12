@@ -13,7 +13,10 @@ return {
 					},
 				},
 			})
+			-- Set keymap
+			vim.keymap.set({ "n", "t" }, "<A-d>", function()
+				LazyDocker.toggle()
+			end, { silent = true, desc = "Lazy Docker" })
 		end,
-		opts = {},
 	},
 }
