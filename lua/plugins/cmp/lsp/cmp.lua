@@ -20,14 +20,14 @@ return {
 		},
 		config = function()
 			-- Snippets
-			local ls = require("luasnip")
-			ls.config.set_config({
+			local luasnip = require("luasnip")
+			luasnip.config.set_config({
 				history = true, -- keep around last snippet local to jump back
 				enabled_autosnippets = true,
 			})
 			require("luasnip.loaders.from_vscode").lazy_load()
-			ls.filetype_extend("javascript", { "javascriptreact" })
-			ls.filetype_extend("javascript", { "html" })
+			luasnip.filetype_extend("javascript", { "javascriptreact" })
+			luasnip.filetype_extend("javascript", { "html" })
 
 			local lspkind = require("lspkind")
 
@@ -87,13 +87,26 @@ return {
 					[":silent <C-p>"] = cmp.mapping.select_prev_item(),
 					[":silent <C-d>"] = cmp.mapping.scroll_docs(-4),
 					[":silent <C-u>"] = cmp.mapping.scroll_docs(4),
-					[":silent <C-c>"] = cmp.mapping.complete(),
+					[":silent <C-Space>"] = cmp.mapping.complete(),
 					[":silent <C-e>"] = cmp.mapping.abort(),
-					[":silent <CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<CR>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							if luasnip.expandable() then
+								luasnip.expand()
+							else
+								cmp.confirm({
+									select = true,
+								})
+							end
+						else
+							fallback()
+						end
+					end),
 				}),
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
+						vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 					end,
 				},
 			})
