@@ -1,22 +1,6 @@
--- CONFORM
--- vim.api.nvim_create_autocmd("BufWritePost", {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		require("conform").format({ bufnr = args.buf })
--- 	end,
--- })
-
--- FORMATTER
--- vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
--- vim.api.nvim_create_autocmd("BufWritePost", {
--- 	group = "FormatAutogroup",
--- 	command = "FormatWrite",
--- 	pattern = "*",
--- })
-
--- NVIM LINT
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
--- 	callback = function()
--- 		require("lint").try_lint()
--- 	end,
--- })
+-- Ensure TreeSitter highlighting is enabled
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*", -- Apply to all files/buffers
+	command = "TSEnable highlight",
+	desc = "Enable Tree-sitter highlighting on startup", --Optional description
+})
