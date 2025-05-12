@@ -35,7 +35,11 @@ return {
 				end,
 			})
 			-- MASON SETUP
-			require("mason").setup({})
+			require("mason").setup()
+			require("mason-nvim-dap").setup({
+				ensure_installed = { "stylua", "jq" },
+				handlers = {}, -- sets up dap in the predefined manner
+			})
 			require("mason-lspconfig").setup({
 				handlers = {
 					-- AUTOMATIC SERVER CONFIGURATION

@@ -1,15 +1,16 @@
 return {
 	{
-		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
+		lazy = false,
+		dependencies = {
+			{ "mfussenegger/nvim-dap", lazy = false },
+			{ "nvim-neotest/nvim-nio", lazy = false },
+		},
+	},
+	{
 		"jayp0521/mason-nvim-dap.nvim",
 		"leoluz/nvim-dap-go",
 		"theHamsta/nvim-dap-virtual-text",
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			dependencies = {
-				"nvim-neotest/nvim-nio",
-			},
-		},
 		config = function()
 			local dap = require("dap")
 			require("dap-go").setup()
@@ -70,8 +71,13 @@ return {
 			end)
 
 			-- Dap UI
-			vim.keymap.set("n", "<F10>", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
-			-- vim.keymap.set("n", "<leader>dt", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
+			-- vim.keymap.set("n", "<F10>", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
+			vim.keymap.set(
+				"n",
+				"<leader><F10>",
+				"require(''dapui').toggle()<CR>",
+				{ buffer = bufnr("$"), remap = false }
+			)
 
 			-- DAP UI
 			-- vim.keymap.set("n", "<F10>", function()

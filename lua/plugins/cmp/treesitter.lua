@@ -2,6 +2,7 @@ return {
 	{
 		{
 			"nvim-treesitter/nvim-treesitter",
+			"HiPhish/rainbow-delimiters.nvim",
 			build = ":TSUpdate",
 			dependencies = {
 				"nvim-treesitter/playground",
@@ -17,6 +18,7 @@ return {
 			opts = {
 				-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 				ensure_installed = {
+					"maintained",
 					"asm",
 					"c",
 					"cpp",
