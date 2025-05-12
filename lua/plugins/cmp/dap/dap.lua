@@ -1,16 +1,14 @@
 return {
 	{
-		"rcarriga/nvim-dap-ui",
-		lazy = false,
+		"mfussenegger/nvim-dap",
 		dependencies = {
-			{ "mfussenegger/nvim-dap", lazy = false },
-			{ "nvim-neotest/nvim-nio", lazy = false },
+			"leoluz/nvim-dap-go",
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
+			"jayp0521/mason-nvim-dap.nvim",
+			"nvim-neotest/nvim-nio",
+			"williamboman/mason.nvim",
 		},
-	},
-	{
-		"jayp0521/mason-nvim-dap.nvim",
-		"leoluz/nvim-dap-go",
-		"theHamsta/nvim-dap-virtual-text",
 		config = function()
 			local dap = require("dap")
 			require("dap-go").setup()
@@ -70,19 +68,10 @@ return {
 				widgets.centered_float(widgets.scopes)
 			end)
 
-			-- Dap UI
-			-- vim.keymap.set("n", "<F10>", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
-			vim.keymap.set(
-				"n",
-				"<leader><F10>",
-				"require(''dapui').toggle()<CR>",
-				{ buffer = bufnr("$"), remap = false }
-			)
-
 			-- DAP UI
-			-- vim.keymap.set("n", "<F10>", function()
-			-- 	require("dapui").toggle()
-			-- end, { silent = true, desc = "Toggle DAPUI" })
+			vim.keymap.set("n", "<F10>", function()
+				require("dapui").toggle()
+			end, { silent = true, desc = "Toggle DAPUI" })
 
 			-- :h dap.txt search:breakpoint
 			vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
