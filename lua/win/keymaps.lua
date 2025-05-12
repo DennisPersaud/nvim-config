@@ -1,6 +1,5 @@
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }
-local LazyDocker = require("lazydocker")
 
 -- Set space to leader
 vim.g.mapleader = " "
@@ -48,18 +47,15 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", options)
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", options)
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", options)
 
--- Diable Uppercase J
+-- Disable Uppercase J
 map("n", "<S-J>", "<Nop>", options)
-
--- DAP
-vim.keymap.set("n", "<F10>", function()
-	require("dapui").toggle()
-end, { silent = true, desc = "Toggle DAPUI" })
 
 -- Lazy.nvim
 map("n", "<leader>l", ":Lazy<CR>", options)
 
+------------------------------------------------------------
 -- BUILD FILE
+------------------------------------------------------------
 vim.api.nvim_create_autocmd("Filetype", {
 	pattern = "c",
 	callback = function()

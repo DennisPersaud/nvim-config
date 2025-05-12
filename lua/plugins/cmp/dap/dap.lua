@@ -70,7 +70,13 @@ return {
 			end)
 
 			-- Dap UI
-			vim.keymap.set("n", "<leader>dt", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
+			vim.keymap.set("n", "<F10>", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
+			-- vim.keymap.set("n", "<leader>dt", "require(''dapui').toggle()<CR>", { buffer = bufnr("$"), remap = false })
+
+			-- DAP UI
+			-- vim.keymap.set("n", "<F10>", function()
+			-- 	require("dapui").toggle()
+			-- end, { silent = true, desc = "Toggle DAPUI" })
 
 			-- :h dap.txt search:breakpoint
 			vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
