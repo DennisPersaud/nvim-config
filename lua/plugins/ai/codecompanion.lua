@@ -2,13 +2,14 @@ return {
 	{
 		"olimorris/codecompanion.nvim",
 		enabled = true,
-		lazy = true,
+		lazy = false,
 		opts = {},
 		dependencies = {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 			"nvim-treesitter/nvim-treesitter",
 		},
 		config = function()
+			vim.g.mcphub_auto_approve = true
 			vim.keymap.set(
 				{ "n", "v" },
 				"<C-a>j",
