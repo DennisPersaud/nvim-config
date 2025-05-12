@@ -6,6 +6,14 @@ return {
 			dependencies = {
 				"nvim-treesitter/playground",
 			},
+			config = function()
+				-- Ensure TreeSitter highlighting is enabled
+				vim.api.nvim_create_autocmd("VimEnter", {
+					pattern = "*", -- Apply to all files/buffers
+					command = "TSEnable highlight",
+					desc = "Enable Tree-sitter highlighting on startup", --Optional description
+				})
+			end,
 			opts = {
 				-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 				ensure_installed = {
