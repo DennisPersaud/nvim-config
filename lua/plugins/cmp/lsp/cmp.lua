@@ -2,7 +2,6 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		enabled = true,
-		lazy = true,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -61,17 +60,11 @@ return {
 					{ name = "lazydev" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
-					-- { name = "vsnip" }, -- For vsnip users.
-					-- { name = 'ultisnips' }, -- For ultisnips users.
-					-- { name = 'snippy' }, -- For snippy users.
 					{ name = "codecompanion" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
 				}),
-				--               sources = {
-				--                   {name = 'nvim_lsp'},
-				--               },
 				window = {
 					completion = {
 						border = "rounded",
@@ -79,8 +72,6 @@ return {
 					documentation = {
 						border = "rounded",
 					},
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
 					[":silent <C-n>"] = cmp.mapping.select_next_item(),
@@ -89,24 +80,11 @@ return {
 					[":silent <C-u>"] = cmp.mapping.scroll_docs(4),
 					[":silent <C-Space>"] = cmp.mapping.complete(),
 					[":silent <C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							if luasnip.expandable() then
-								luasnip.expand()
-							else
-								cmp.confirm({
-									select = true,
-								})
-							end
-						else
-							fallback()
-						end
-					end),
+					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
-						vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
 					end,
 				},
 			})
