@@ -1,7 +1,7 @@
 return {
 	{
 		"crnvl96/lazydocker.nvim",
-		lazy = true,
+		lazy = false,
 		config = function()
 			require("lazydocker").setup({
 				window = {
