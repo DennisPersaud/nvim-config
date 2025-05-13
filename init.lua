@@ -18,7 +18,7 @@ if package.config:sub(1, 1) == "\\" then
 elseif package.config:sub(1, 1) == "/" then
 	-- code to execute on Linux
 	-- print("Running Linux config")
-	require("linux")
+	require("nix")
 else
 	-- No config
 	print("OS undetected no config loaded")
