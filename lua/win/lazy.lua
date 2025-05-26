@@ -43,6 +43,16 @@ require("lazy").setup({
 
 		-- -- Theme
 		{ "ajmwagar/vim-deus" },
+		{
+			"sainnhe/sonokai",
+			priority = 1000,
+			config = function()
+				vim.g.sonokai_transparent_background = "1"
+				vim.g.sonokai_enable_italic = "1"
+				vim.g.sonokai_style = "andromeda"
+				-- vim.cmd.colorscheme("sonokai")
+			end,
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- -- colorscheme that will be used when installing plugins.
