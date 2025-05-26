@@ -57,10 +57,10 @@ return {
 				},
 				sources = cmp.config.sources({
 					per_filetype = {},
-					{ name = "lazydev" },
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "lazydev" },
 					{ name = "codecompanion" },
+					{ name = "luasnip" }, -- For luasnip users.
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
