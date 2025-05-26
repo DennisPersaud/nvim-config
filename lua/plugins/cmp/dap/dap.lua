@@ -6,8 +6,15 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"theHamsta/nvim-dap-virtual-text",
 			"jayp0521/mason-nvim-dap.nvim",
+			"mxsdev/nvim-dap-vscode-js",
 			"nvim-neotest/nvim-nio",
 			"williamboman/mason.nvim",
+			{
+				"microsoft/vscode-js-debug",
+				-- After install, build it and rename the dist directory to out
+				build = "npm install --legacy-peer-deps --no-save && npx gulp vsDebugServerBundle && rm -rf out && mv dist out",
+				version = "1.*",
+			},
 		},
 		config = function()
 			local dap = require("dap")
@@ -94,6 +101,42 @@ return {
 			vim.fn.sign_define("DapLogPoint", { text = "📝", texthl = "", linehl = "", numhl = "" })
 			vim.fn.sign_define("DapStopped", { text = "⛔", texthl = "", linehl = "", numhl = "" })
 			vim.fn.sign_define("DapBreakpointRejected", { text = "❌", texthl = "", linehl = "", numhl = "" })
+
+			-- Node JS Integration
+			require("dap-vscode-js").setup({
+				adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+			})
+
+			for _, adapterType in ipairs({ "node", "chrome", "msedge" }) do
+				local pwaType = "pwa-" .. adapterType
+
+				dap.adapters[pwaType] = {
+					type = "server",
+					host = "localhost",
+					port = "${port}",
+					executable = {
+						command = "node",
+						args = {
+							vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+							"${port}",
+						},
+					},
+				}
+
+				-- this allow us to handle launch.json configurations
+				-- which specify type as "node" or "chrome" or "msedge"
+				dap.adapters[adapterType] = function(cb, config)
+					local nativeAdapter = dap.adapters[pwaType]
+
+					config.type = pwaType
+
+					if type(nativeAdapter) == "function" then
+						nativeAdapter(cb, config)
+					else
+						cb(nativeAdapter)
+					end
+				end
+			end
 		end,
 	},
 }
