@@ -7,6 +7,11 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "b0o/schemastore.nvim" },
 		},
+		opts = {
+			servers = {
+				tailwindcss = {},
+			},
+		},
 		config = function()
 			-- LSPCONFIG KEY BINDINGS
 			-- note: diagnostics are not exclusive to lsp servers
