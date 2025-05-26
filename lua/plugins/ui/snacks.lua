@@ -31,7 +31,7 @@ return {
 				},
 				icons = {
 					files = {
-						enabled = false,
+						enabled = true,
 					},
 				},
 			},
@@ -153,7 +153,7 @@ return {
 			},
 			{
 				-- "<leader>e", -- original
-                "\\\\",
+				"\\\\",
 				function()
 					Snacks.explorer()
 				end,
