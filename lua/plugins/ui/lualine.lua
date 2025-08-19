@@ -37,7 +37,7 @@ return {
 						"fileformat",
 						"filetype",
 						-- Other lualine components in "x" section
-						{ require("mcphub.extensions.lualine") },
+						-- { require("mcphub.extensions.lualine") },
 					},
 					lualine_y = { "progress" },
 					lualine_z = { "location" },

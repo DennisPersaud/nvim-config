@@ -1,6 +1,7 @@
 return {
 	{
 		"ravitemer/mcphub.nvim",
+		enabled = true,
 		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
